@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-user-graduate"></i> Student Registration System</h1>
+            <p>Manage student records with ease. Register, edit, or delete student information.</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Registration Form -->
+            <div class="form-container">
+                <h2><i class="fas fa-user-plus"></i> Student Registration</h2>
+                
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="studentName">Student Name <span class="required">*</span></label>
+                        <input type="text" id="studentName" placeholder="Full name">
+                        <div id="nameValidation" class="validation-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentID">Student ID <span class="required">*</span></label>
+                        <input type="text" id="studentID" placeholder="Unique ID number">
+                        <div id="idValidation" class="validation-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email ID <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="Email address">
+                        <div id="emailValidation" class="validation-message"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactNo">Contact No <span class="required">*</span></label>
+                        <input type="text" id="contactNo" placeholder="Phone number">
+                        <div id="contactValidation" class="validation-message"></div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn">
+                            <i class="fas fa-save"></i> Register Student
+                        </button>
+                        <button type="button" id="cancelBtn" style="display: none;">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Records Section -->
+            <div class="records-container">
+                <div class="records-header">
+                    <h2><i class="fas fa-users"></i> Student Records</h2>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search students...">
+                    </div>
+                </div>
+                
+                <div id="recordsContainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordsBody">
+                            <!-- Records will be populated here -->
+                        </tbody>
+                    </table>
+                    
+                    <div id="emptyState">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>No student records found</h3>
+                        <p>Register your first student to begin</p>
+                    </div>
+                </div>
+                
+                <div class="records-footer">
+                    <div id="recordCount">0 students registered</div>
+                    <button id="clearAllBtn">
+                        <i class="fas fa-trash-alt"></i> Clear All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Confirm Deletion</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this student record? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelDelete">Cancel</button>
+                <button id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
